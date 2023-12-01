@@ -1,0 +1,92 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bài_5
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+
+            do
+            {
+                int m, n;
+                bool lyLuan = false;
+
+                do
+                {
+                    Console.Write("Nhập số nguyên m: ");
+                    if (int.TryParse(Console.ReadLine(), out m) && m >= 0)
+                    {
+                        lyLuan = true;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+
+                        Console.WriteLine("Giá trị m không hợp lệ. Vui lòng nhập lại.");
+
+                        Console.ResetColor();
+                    }
+                } while (!lyLuan);
+
+                lyLuan = false;
+
+                do
+                {
+                    Console.Write("Nhập số nguyên n: ");
+                    if (int.TryParse(Console.ReadLine(), out n) && n >= 0)
+                    {
+                        lyLuan = true;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+
+                        Console.WriteLine("Giá trị n không hợp lệ. Vui lòng nhập lại.");
+
+                        Console.ResetColor();
+                    }
+                } 
+                while (!lyLuan);
+
+                int ucln = thiEn(m, n);
+
+                Console.ForegroundColor = ConsoleColor.Green;
+
+                Console.WriteLine("Ước chung lớn nhất của " + m + " và " + n + " là: " + ucln);
+
+                Console.ResetColor();
+
+                Console.Write("Bạn có muốn tiếp tục không? (Y/N): ");
+
+                string choice = Console.ReadLine();
+
+                if (choice.ToUpper() != "Y")
+                {
+                    break;
+                }
+
+                Console.WriteLine();
+            } while (true);
+
+            Console.ReadLine();
+        }
+
+        static int thiEn(int m, int n)
+        {
+            while (n != 0)
+            {
+                int temp = n;
+                n = m % n;
+                m = temp;
+            }
+
+            return m;
+        }
+    }
+}
