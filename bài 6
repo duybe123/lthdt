@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace bài_6_OOP
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int t, n;
+            int[] mang = new int[4] {500000, 200000, 100000, 50000};
+            int[] soLuong = new int[4] {0,0,0,0};
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+            Console.WriteLine("Chương trình đổi tiền ra các mệnh gía và xuất ra tương ứng với số tờ tiền ít nhất \n");
+            do
+            {
+                Console.Write("Nhập sô tiền: ");
+                t = int.Parse(Console.ReadLine());
+                if (t % 50000 == 0 && t > 0)
+                {
+                    n = t;
+                        for (int i = 0; i < 4; i++)
+                        {
+                            soLuong[i] += n / mang[i];
+                            n = n % mang[i];
+                        }
+                    Console.WriteLine("{0} = {1} tờ 500000, {2} tờ 200000, {3} tờ 100000, {4} tờ 50000", t, soLuong[0], soLuong[1], soLuong[2], soLuong[3]);
+                }
+                else { Console.WriteLine("số tiền phải là bội số của 50000"); }
+            } while (t % 50000 != 0 || t < 0);
+            Console.ReadKey();
+        }
+    }
+}
