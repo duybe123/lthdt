@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace bài_4
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+            for (int soGa = 0; soGa <= 36; soGa++)
+            {
+                int soCho = 36 - soGa;
+                int choGa = soGa * 2 + soCho * 4;
+
+                if (choGa == 100)
+                {
+                    Console.WriteLine("Số con gà: " + soGa);
+                    Console.WriteLine("Số con chó: " + soCho);
+                    break;
+                }
+            }
+
+            Console.ReadLine();
+        }
+    }
+}
