@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bài_1_được_update
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+            do
+            {
+                int n;
+                bool neuSai = false;
+                do
+                {
+                    Console.Write("Nhập số nguyên dương n: ");
+
+                    if (int.TryParse(Console.ReadLine(), out n) && n >= 0)
+                    {
+                        neuSai = true;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+
+                        Console.WriteLine("Giá trị n không hợp lệ. Vui lòng nhập lại.");
+
+                        Console.ResetColor();
+
+                    }
+
+                } while (!neuSai);
+                int sum = 0;
+                // vòng lặp for bắt đầu cho đến khi đạt đến giá trị n
+
+                for (int i = 1; i <= n; i++)
+                {
+                    sum = sum + i;
+                }
+                Console.ForegroundColor = ConsoleColor.Green;
+
+                Console.WriteLine("Tổng của dãy từ 1 đến {0} là: {1}", n, sum);
+
+                Console.ResetColor();
+
+                Console.Write("Bạn có muốn tiếp tục không? (Y/N): ");
+
+                string choice = Console.ReadLine();
+
+                if (choice.ToUpper() != "Y")
+                {
+                    break;
+                }
+
+                Console.WriteLine();
+            } while(true);
+        }
+    }
+}
