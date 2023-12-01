@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bài_2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+            int n = 1;
+            int sum = 0;
+
+            while (sum <= 10000)
+            {
+                sum += n;
+                n++;
+            }
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Giá trị n nhỏ nhất là: " + (n - 1));
+            Console.ResetColor();
+            Console.ReadLine();
+            Console.ReadKey();
+        }
+    }
+}
