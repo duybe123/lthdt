@@ -1,0 +1,213 @@
+sử dụng Hệ thống;
+sử dụng System.Collections.Generic;
+sử dụng System.Linq;
+sử dụng System.Text;
+sử dụng System.Threading.Tasks;
+sử dụng Bài_tập_1_thầy_giao.Program tĩnh;
+
+namespace Bài_tập_1_thầy_giao
+{
+    Chương trình lớp nội bộ
+    {
+        lớp công cộng Phanso
+        {
+            công khai Tuso;
+            công khai Mauso;
+            int công khai UCLN()
+            {
+                int a = Math.Abs(Tuso);
+                int b = Math.Abs(Mauso);
+                trong khi (b != 0)
+                {
+                    int tạm thời = b;
+                    b = a % b;
+                    a = nhiệt độ;
+                }
+                trả lại một;
+            }
+
+            int công khai BCNN()
+            {
+                int a = Math.Abs(Tuso);
+                int b = Math.Abs(Mauso);
+                return a*b/UCLN();
+            }
+
+            khoảng trống công khai InUCLN_BCNN()
+            {
+                Console.WriteLine($"Ưu tiên chung lớn nhất (UCLN) của phân số là: {UCLN()}");
+                Console.WriteLine($"Bộ chung nhỏ nhất (BCNN) của phân số là: {BCNN()}");
+            }
+            công cộng Phanso()
+            {
+                Tuso = 0;
+                Mauso = 1;
+            }
+            public Phanso(int tuso, int mauso)
+            {
+                tuso = tuso;
+                Mauso = mauso;
+            }
+            công khai int UCLN(int a, int b)
+            {
+                nếu (b == 0)
+                    trả lại một;
+                trả về UCLN(b, a % b);
+            }
+
+            public void RutGon()
+            {
+                int ucln = UCLN(Tuso, Mauso);
+                Tuso /= ucln;
+                Mauso /= ucln;
+            }
+            chuỗi ghi đè công khai ToString()
+            {
+                nếu (Mauso < 0)
+                {
+                    trả về $"{-Tuso}/{-Mauso}";
+                }
+                khác
+                {
+                    return $"{Tuso}/{Mauso}";
+                }
+            }
+            công Phanso Công(Phanso ps2)
+            {
+                int mausoChung = Mauso * ps2.Mauso;
+                int tuso1 = Tuso * ps2.Mauso;
+                int tuso2 = ps2.Tuso * Mauso;
+                trả về Phanso mới(tuso1 + tuso2, mausoChung);
+            }
+            công Phanso Tru(Phanso ps2)
+            {
+                int mausoChung = Mauso * ps2.Mauso;
+                int tuso1 = Tuso * ps2.Mauso;
+                int tuso2 = ps2.Tuso * Mauso;
+                trả về Phanso mới(tuso1 - tuso2, mausoChung);
+            }
+
+            public Phanso Nhan(Phanso ps2)
+            {
+                trả về Phanso mới(Tuso * ps2.Tuso, Mauso * ps2.Mauso);
+            }
+
+            công cộng Phanso Chia(Phanso ps2)
+            {
+                trả về Phanso mới(Tuso * ps2.Mauso, Mauso * ps2.Tuso);
+            }
+            public static void Main(string[] args)
+            {
+                Console.OutputEncoding = Encoding.UTF8;
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Câu 1 xây dựng hàm khởi động phân bổ số bằng 0, mẫu số bằng 1");
+                Console.ResetColor();
+
+                // Tạo một phân số đối tượng
+                Phanso ps = Phanso mới(0, 1);
+
+                // In ra giá trị của phân số
+                Console.WriteLine(ps);
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Câu 2 xây dựng các phép toán.");
+                Console.ResetColor();
+
+                // Nhập giá trị của số tử và số mẫu từ bàn phím
+                Console.Write("Nhập số tử của số thứ 1: ");
+                int tuso1 = int.Parse(Console.ReadLine());
+                int mauso1, mauso2;
+                bool lyLuan = false;
+                LÀM
+                {
+                    Console.Write("Nhập số mẫu của số thứ 1: ");
+                    if (int.TryParse(Console.ReadLine(), out mauso1) && mauso1 > 0)
+                    {
+                        lyLuân = đúng;
+                    }
+                    khác
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+
+                        Console.WriteLine("Giá trị không hợp lệ. Vui lòng nhập lại.");
+
+                        Console.ResetColor();
+                    }
+                } while (!lyLuan) ;
+                lyLuân = sai;
+                Console.Write("Nhập số tử của phân số thứ 2: ");
+                int tuso2 = int.Parse(Console.ReadLine());
+                LÀM
+                {
+                    Console.Write("Nhập số mẫu của số thứ 2: ");
+                    if (int.TryParse(Console.ReadLine(), out mauso2) && mauso2 > 0)
+                    {
+                        lyLuân = đúng;
+                    }
+                    khác
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+
+                        Console.WriteLine("Giá trị không hợp lệ. Vui lòng nhập lại.");
+
+                        Console.ResetColor();
+                    }
+                } while (!lyLuan);
+
+                // Tạo phân số đối tượng từ giá trị đã nhập
+                Phanso ps1 = Phanso mới(tuso1, mauso1);
+                Phanso ps2 = Phanso mới(tuso2, mauso2);
+
+                // In ra giá trị của cộng số
+                Console.WriteLine("Phân số thứ nhất được nhận từ màn hình là:" + ps1);
+                Console.WriteLine("+");
+                Console.WriteLine("Phân số thứ nhất được nhận từ màn hình là:" + ps2);
+                Console.WriteLine("=");
+                Phanso psc = ps1.Cong(ps2);
+                psc.RutGon();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(psc);
+                Console.ResetColor();
+                psc.InUCLN_BCNN();
+
+                // In ra giá trị của phân số trừ
+                Console.WriteLine("Phân số thứ nhất được nhận từ màn hình là:" + ps1);
+                Console.WriteLine("-");
+                Console.WriteLine("Phân số thứ nhất được nhận từ màn hình là:" + ps2);
+                Console.WriteLine("=");
+                Phanso pst = ps1.Tru(ps2);
+                Console.ResetColor();
+                pst.RutGon();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(pst);
+                Console.ResetColor();
+                pst.InUCLN_BCNN();
+                // In ra value of kernel number
+                Console.WriteLine("Phân số thứ nhất được nhận từ màn hình là:" + ps1);
+                Console.WriteLine("*");
+                Console.WriteLine("Phân số thứ nhất được nhận từ màn hình là:" + ps2);
+                Console.WriteLine("=");
+                Phanso psn = ps1.Nhân(ps2);
+                psn.RutGon();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(psn);
+                Console.ResetColor();
+                psn.InUCLN_BCNN();
+
+                // In ra giá trị của phân số
+                Console.WriteLine("Phân số thứ nhất được nhận từ màn hình là:" + ps1);
+                Console.WriteLine("/");
+                Console.WriteLine("Phân số thứ nhất được nhận từ màn hình là:" + ps2);
+                Console.WriteLine("=");
+                Phanso pschia = ps1.Chia(ps2);
+                pschia.RutGon();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(pschia);
+                Console.ResetColor();
+                pschia.InUCLN_BCNN();
+
+            }
+        }
+    }
+}
